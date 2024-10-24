@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+header h1{
+    text-align: center;
+    font-size: 50px;
+}
+.symbol_select {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.symbol_select button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+.game_board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black; 
+    aspect-ratio: 1 / 1; 
+    font-size: 2em; 
+    box-sizing: border-box; 
+}
