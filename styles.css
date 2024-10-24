@@ -17,6 +17,15 @@ header h1{
     padding: 10px 20px;
     margin: 10px;
     cursor: pointer;
+    border-radius: 5px;
+}
+.symbol_select button:hover {
+    background-color: green;
+}
+.turn_indicator{
+    text-align: center;
+    margin: 10px;
+    font-size: 25px;
 }
 .game_board {
     display: grid;
@@ -36,8 +45,16 @@ header h1{
     font-size: 2em; 
     box-sizing: border-box; 
 }
-.cell:hover{
-    background-color: #8D918D;
+.cell button {
+    width: 100%; 
+    height: 100%; 
+    font-size: 2em;
+    border: none; 
+    background: none; 
+    cursor: pointer; 
+}
+.cell button:hover {
+    background-color: green;
 }
 .scores{
     display: block;
