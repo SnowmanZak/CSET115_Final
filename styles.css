@@ -27,7 +27,6 @@ header h1{
     margin: 0 auto;
     padding: 0;
 }
-
 .cell {
     display: flex;
     justify-content: center;
@@ -36,4 +35,17 @@ header h1{
     aspect-ratio: 1 / 1; 
     font-size: 2em; 
     box-sizing: border-box; 
+}
+.cell:hover{
+    background-color: #8D918D;
+}
+.scores{
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.player1_score{
+    margin-top: 20px;
 }
