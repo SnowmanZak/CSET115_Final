@@ -53,10 +53,15 @@ header h1{
     background: none; 
     cursor: pointer; 
 }
-.cell button:hover {
-    background-color: green;
+.cell[data-symbol="X"]:hover {
+    background-color: red; 
 }
-
+.cell[data-symbol="O"]:hover {
+    background-color: blue; 
+}
+.cell:hover {
+    cursor: pointer; 
+}
 .scores{
     display: block;
     justify-content: center;

@@ -25,12 +25,28 @@ function updateTurnIndicator() {
     turnInfo.textContent = `It's ${currentPlayer === player1Symbol ? "Player 1's" : "Player 2's"} turn.`;
 }
 
-document.querySelectorAll('.cell button').forEach((button, index) => {
-    button.addEventListener('click', () => {
-        if (!isGameStarted || board[index] !== '') return; 
+document.querySelectorAll('.cell button').forEach(function(button, index) {
+    const cell = button.parentElement;
+
+    cell.addEventListener('mouseenter', function() {
+        if (isGameStarted && board[index] === '') {
+            cell.style.backgroundColor = currentPlayer === player1Symbol ? 'red' : 'blue';
+        }
+    });
+
+    cell.addEventListener('mouseleave', function() {
+        if (board[index] === '') {
+            cell.style.backgroundColor = ''; 
+        }
+    });
+
+    button.addEventListener('click', function() {
+        if (!isGameStarted || board[index] !== '') return;
 
         board[index] = currentPlayer; 
         button.textContent = currentPlayer; 
+
+        cell.style.backgroundColor = currentPlayer === player1Symbol ? 'red' : 'blue';
 
         if (checkWinner()) {
             if (currentPlayer === player1Symbol) {
@@ -42,15 +58,15 @@ document.querySelectorAll('.cell button').forEach((button, index) => {
                 document.getElementById("player2_wins").textContent = player2_wins;
                 alert("Player 2 wins!");
             }
-            resetGame(); 
+            resetGame();
         } else if (board.every(cell => cell !== '')) {
             ties++;
             document.getElementById("ties").textContent = ties;
             alert("It's a tie!");
-            resetGame(); 
+            resetGame();
         } else {
-            currentPlayer = currentPlayer === player1Symbol ? player2Symbol : player1Symbol; 
-            updateTurnIndicator(); 
+            currentPlayer = currentPlayer === player1Symbol ? player2Symbol : player1Symbol;
+            updateTurnIndicator();
         }
     });
 });
@@ -79,7 +95,7 @@ function resetGame() {
         button.textContent = ''; 
     });
     document.querySelectorAll('.cell').forEach(function(cell) {
-        cell.removeAttribute('data-symbol'); 
+        cell.style.backgroundColor = '';
     });
     currentPlayer = player1Symbol; 
     updateTurnIndicator(); 
