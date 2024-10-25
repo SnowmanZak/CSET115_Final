@@ -19,10 +19,12 @@ function selectSymbol(symbol) {
 
     updateTurnIndicator(); 
 }
+
 function updateTurnIndicator() {
     const turnInfo = document.getElementById("turn-info");
     turnInfo.textContent = `It's ${currentPlayer === player1Symbol ? "Player 1's" : "Player 2's"} turn.`;
 }
+
 document.querySelectorAll('.cell button').forEach((button, index) => {
     button.addEventListener('click', () => {
         if (!isGameStarted || board[index] !== '') return; 
@@ -71,3 +73,14 @@ function checkWinner() {
     });
 }
 
+function resetGame() {
+    board.fill(''); 
+    document.querySelectorAll('.cell button').forEach(function(button) {
+        button.textContent = ''; 
+    });
+    document.querySelectorAll('.cell').forEach(function(cell) {
+        cell.removeAttribute('data-symbol'); 
+    });
+    currentPlayer = player1Symbol; 
+    updateTurnIndicator(); 
+}
